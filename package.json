@@ -11,7 +11,8 @@
     "gen": "npx generate-react-cli c",
     "format": "prettier --write .",
     "test": "jest",
-    "cov": "npm run test \"$src\" -- --coverage --collectCoverageFrom=\"$(echo $src | sed 's/.spec//')\""
+    "cov": "npm run test \"$src\" -- --coverage --collectCoverageFrom=\"$(echo $src | sed 's/.spec//')\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "18.2.0",
@@ -40,6 +41,7 @@
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-react-refresh": "0.4.3",
+    "husky": "8.0.3",
     "jest": "29.6.1",
     "jest-environment-jsdom": "29.6.1",
     "jest-transform-stub": "2.0.0",
