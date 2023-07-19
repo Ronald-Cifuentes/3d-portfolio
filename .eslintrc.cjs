@@ -1,24 +1,54 @@
-/* eslint-env node */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const confPrettier = require('./.prettierrc')
 
 module.exports = {
-  root: true,
-  env: { browser: true, es2020: true },
+  env: {
+    browser: true,
+    es2022: true,
+    'jest/globals': true,
+  },
   extends: [
     'eslint:recommended',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
+  plugins: ['react', '@typescript-eslint', 'jest'],
+  overrides: [
+    {
+      files: [
+        '**/*.cjs',
+        '.eslintrc.{js,cjs}',
+        '*.ts',
+        '*.tsx',
+        '*.js',
+        '*.jsx',
+        '**/*.spec.js',
+        '**/*.spec.jsx',
+      ],
+      env: {
+        node: true,
+        jest: true,
+      },
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
   parserOptions: {
-    ecmaVersion: 'latest',
     sourceType: 'module',
-    project: true,
-    tsconfigRootDir: __dirname,
+    ecmaVersion: 2020,
   },
-  plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-explicit-any': ['error'],
+    '@typescript-eslint/no-unused-vars': ['error'],
+    'react/react-in-jsx-scope': ['off'],
+    'prettier/prettier': ['error', confPrettier],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 }
