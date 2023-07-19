@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "gen": "npx generate-react-cli c",
     "format": "prettier --write .",
-    "test": "jest"
+    "test": "jest",
+    "cov": "npm run test \"$src\" -- --coverage --collectCoverageFrom=\"$(echo $src | sed 's/.spec//')\""
   },
   "dependencies": {
     "react": "18.2.0",
