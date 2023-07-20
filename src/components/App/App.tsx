@@ -1,15 +1,9 @@
 import { FC } from 'react'
 import { AppProps } from './interfaces'
-import './App.css'
-import GlobalStyle from './App.styled'
+import { AppContainer } from './App.styled'
 
 const App: FC<AppProps> = ({ dataTestId = 'app' }) => {
-  return (
-    <div data-testid={dataTestId}>
-      <GlobalStyle />
-      Hi
-    </div>
-  )
+  return <AppContainer data-testid={dataTestId}>Hi</AppContainer>
 }
 
 export default App
