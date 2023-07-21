@@ -16,6 +16,10 @@ const Providers: FC<ProvidersProps> = ({ children, store }) => {
   return <Provider store={store}>{children}</Provider>
 }
 
+window.HTMLMediaElement.prototype.play = () => Promise.resolve()
+console.error = jest.fn()
+console.log = jest.fn()
+
 describe('<App /> Unit Testing', () => {
   let unitStore: Store
 

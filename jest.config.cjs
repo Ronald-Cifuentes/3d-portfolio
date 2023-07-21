@@ -1,7 +1,7 @@
 module.exports = {
   verbose: true,
   preset: 'ts-jest',
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
   collectCoverageFrom: ['<rootDir>/**/*.(tsx|ts)', '!<rootDir>/**/*.test.(tsx|ts)'],
   coverageThreshold: {
