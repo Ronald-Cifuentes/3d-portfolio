@@ -3,12 +3,14 @@ import { AppProps } from './interfaces'
 import { AppContainer } from './App.styled'
 import Background from '../Background'
 import Counter from '../Counter'
+import Footer from '../Footer/Footer'
 
 const App: FC<AppProps> = ({ dataTestId = 'app' }) => {
   return (
     <AppContainer data-testid={dataTestId}>
-      <Counter />
       <Background />
+      <Footer />
+      <Counter />
     </AppContainer>
   )
 }
