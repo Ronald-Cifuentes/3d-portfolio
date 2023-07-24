@@ -45,6 +45,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     'react/react-in-jsx-scope': ['off'],
     'prettier/prettier': ['error', confPrettier],
+    'react/no-unknown-property': ['off'],
   },
   settings: {
     react: {

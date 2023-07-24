@@ -15,10 +15,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-three/drei": "9.79.3",
+    "@react-three/fiber": "8.13.5",
     "core-js": "3.31.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "6.0.5",
+    "three": "0.154.0",
     "typescript": "5.1.6",
     "vite": "4.4.6"
   },
@@ -33,10 +36,12 @@
     "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "14.0.0",
     "@types/jest": "29.5.3",
+    "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
     "@types/redux-mock-store": "1.0.3",
     "@types/styled-components": "5.1.26",
+    "@types/three": "0.154.0",
     "@typescript-eslint/eslint-plugin": "6.1.0",
     "@typescript-eslint/parser": "6.1.0",
     "@vitejs/plugin-react": "4.0.3",
@@ -56,7 +61,6 @@
     "prettier": "3.0.0",
     "react-redux": "8.1.1",
     "redux-mock-store": "1.5.4",
-    "svg-jest": "1.0.1",
     "ts-jest": "29.1.1",
     "vite-plugin-svgr": "3.2.0"
   }
