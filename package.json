@@ -15,15 +15,21 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@react-three/drei": "9.79.3",
+    "@emailjs/browser": "4.4.1",
+    "@react-three/drei": "^9.121.4",
     "@react-three/fiber": "8.13.5",
     "core-js": "3.31.1",
+    "font-awesome": "4.7.0",
+    "framer-motion": "12.0.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-router-dom": "7.1.5",
+    "react-tilt": "1.0.2",
+    "react-vertical-timeline-component": "3.5.3",
     "styled-components": "6.0.5",
     "three": "0.154.0",
     "typescript": "5.1.6",
-    "vite": "4.4.6"
+    "vite": "^4.5.9"
   },
   "devDependencies": {
     "@babel/core": "7.22.9",
@@ -39,6 +45,7 @@
     "@types/node": "20.4.4",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "@types/react-vertical-timeline-component": "3.3.6",
     "@types/redux-mock-store": "1.0.3",
     "@types/styled-components": "5.1.26",
     "@types/three": "0.154.0",

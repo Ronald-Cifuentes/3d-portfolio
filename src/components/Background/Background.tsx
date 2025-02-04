@@ -1,13 +1,11 @@
-import { FC } from 'react'
-import { BackgroundContainer } from './Background.styled'
 import BgVideo from './BgVideo'
-import { BackgroundProps } from './interfaces'
+import './Background.css'
 
-const Background: FC<BackgroundProps> = ({ dataTestId = 'background' }) => {
+const Background = () => {
   return (
-    <BackgroundContainer data-testid={dataTestId}>
+    <section className='showcase'>
       <BgVideo />
-    </BackgroundContainer>
+    </section>
   )
 }
 

@@ -1,3 +1,3 @@
-export interface TemplateNameProps {
-  dataTestId?: string
-}
+export type TemplateNameProps = Partial<{
+  dataTestId: string
+}>

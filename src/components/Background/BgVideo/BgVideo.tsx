@@ -1,9 +1,7 @@
-import { FC, useEffect, useRef } from 'react'
-import { Video } from './BgVideo.styled'
-import { BgVideoProps } from './interfaces'
+import { useEffect, useRef } from 'react'
 
-const BgVideo: FC<BgVideoProps> = ({ dataTestId = 'bg-video' }) => {
-  const video1El = useRef<HTMLVideoElement>(null)
+const BgVideo = () => {
+  const video1El = useRef(null)
 
   const attemptPlay = () => {
     video1El &&
@@ -13,7 +11,7 @@ const BgVideo: FC<BgVideoProps> = ({ dataTestId = 'bg-video' }) => {
         .then(() => {
           console.log('Success video background')
         })
-        .catch(error => {
+        .catch((error: Error) => {
           console.error('Error attempting to play', error)
         })
   }
@@ -23,13 +21,10 @@ const BgVideo: FC<BgVideoProps> = ({ dataTestId = 'bg-video' }) => {
   }, [])
 
   return (
-    <Video data-testid={dataTestId} loop muted ref={video1El}>
-      <source
-        src='https://cdn-r.s3.us-east-2.amazonaws.com/Abstract_Liquids.mkv'
-        type='video/mp4'
-      />
+    <video className='absolute z-0' loop muted ref={video1El}>
+      <source src='https://r-sources.ddns.net/Abstract_Liquids.mkv' type='video/mp4' />
       Your browser does not support HTML video.
-    </Video>
+    </video>
   )
 }
 
