@@ -1,38 +1,38 @@
 import { BrowserRouter } from 'react-router-dom'
-
 import {
-  // Skills,
+  Skills,
   // Contact,
-  // Experience,
   Content,
+  Experience,
   Navbar,
   // Tech,
   // Projects,
   // StarsCanvas,
 } from './components'
-// import Background from './components/Background/Background'
-// import Footer from './components/Footer/Footer'
+import Background from './components/Background/Background'
+import Footer from './components/Footer/Footer'
+import { AppContainer, HeroSection } from './App.styled'
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-black'>
-        <div className='bg-cover bg-no-repeat bg-center' style={{ height: '850px' }}>
+      <AppContainer>
+        <HeroSection $height='850px'>
           <Navbar />
           <Content />
-          {/* <Background />
-          <Footer /> */}
-        </div>
+          <Background />
+          <Footer />
+        </HeroSection>
 
-        {/* <Experience />
+        <Experience />
         <Skills />
-        <Tech />
+        {/* <Tech />
         <Projects />
-        <div className='relative z-0'>
+        <StarsContainer>
           <Contact />
           <StarsCanvas />
-        </div> */}
-      </div>
+        </StarsContainer> */}
+      </AppContainer>
     </BrowserRouter>
   )
 }

@@ -1,30 +1,127 @@
-import { styles } from '../../styles'
-import { ComputersCanvas } from '../canvas'
-// import { control, control1, control2, control3 } from '../../assets'
-import './Content.css'
+import styled, { keyframes } from 'styled-components'
+
+const colorAnimation = keyframes`
+  0% { color: #a0d468; }
+  20% { color: #4fc1e9; }
+  40% { color: #ffce54; }
+  60% { color: #fc6e51; }
+  80% { color: #ed5565; }
+  100% { color: #ac92ec; }
+`
+
+const bgAnimation = keyframes`
+  0% { background: #a0d468; }
+  20% { background: #4fc1e9; }
+  40% { background: #ffce54; }
+  60% { background: #fc6e51; }
+  80% { background: #ed5565; }
+  100% { background: #ac92ec; }
+`
+
+const Container = styled.div`
+  position: absolute;
+  inset: 0;
+  top: 120px;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  z-index: 10; // Added z-index to ensure content appears above background
+
+  @media (min-width: 640px) {
+    padding: 0 4rem;
+  }
+`
+
+const EmptyDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+`
+
+const RainbowBar = styled.div`
+  width: 0.25rem;
+  height: 13rem;
+  animation: ${bgAnimation} 4s ease-in-out infinite;
+`
+
+const ContentContainer = styled.div``
+
+const Title = styled.h1`
+  font-weight: 900;
+  color: white;
+  font-size: 40px;
+  margin-top: 0.5rem;
+  line-height: normal;
+
+  @media (min-width: 450px) {
+    font-size: 50px;
+  }
+
+  @media (min-width: 640px) {
+    font-size: 60px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 80px;
+    line-height: 98px;
+  }
+`
+
+const RainbowSpan = styled.span`
+  font-family: 'Oswald', sans-serif;
+  font-size: 100px;
+  animation: ${colorAnimation} 4s ease-in-out infinite;
+`
+
+const Description = styled.p`
+  color: #dfd9ff;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 0.5rem;
+
+  @media (min-width: 450px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 640px) {
+    font-size: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 30px;
+    line-height: 40px;
+  }
+`
+
+const HiddenBr = styled.br`
+  display: none;
+  @media (min-width: 640px) {
+    display: block;
+  }
+`
 
 const Content = () => {
   return (
-    <section className={`absolute z-10 w-full h-screen mx-auto`}>
-      <div
-        className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
-      >
-        <div className='flex flex-col justify-center items-center mt-5'></div>
-        <div className='w-1 h-52 rainbow-bg' />
-
-        <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
-            {"Hi, I'm"} <span className='rainbow-text'>Ronald</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Web Developer, Designer UX / UI <br className='sm:block hidden' />
-            Web3, Javascript Specialist
-          </p>
-        </div>
-      </div>
-
-      <ComputersCanvas />
-    </section>
+    <Container>
+      <EmptyDiv />
+      <RainbowBar />
+      <ContentContainer>
+        <Title>
+          {"Hi, I'm"} <RainbowSpan>Ronald</RainbowSpan>
+        </Title>
+        <Description>
+          Web Developer, Designer UX / UI <HiddenBr />
+          Web3, Javascript Specialist
+        </Description>
+      </ContentContainer>
+    </Container>
   )
 }
 

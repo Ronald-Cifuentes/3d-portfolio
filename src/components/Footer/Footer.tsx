@@ -1,19 +1,19 @@
-import './Footer.css'
 import { List } from './Footer.const'
+import { FooterContainer, SocialList } from './Footer.styled'
 
 const Footer = () => {
   return (
-    <section className='footer-container'>
-      <ul className='social'>
+    <FooterContainer>
+      <SocialList>
         {List.map((item, ind) => (
           <li key={`item-${ind}`}>
-            <a target='_black' href={item.link}>
+            <a target='_blank' rel='noopener noreferrer' href={item.link}>
               {item.icon}
             </a>
           </li>
         ))}
-      </ul>
-    </section>
+      </SocialList>
+    </FooterContainer>
   )
 }
 
