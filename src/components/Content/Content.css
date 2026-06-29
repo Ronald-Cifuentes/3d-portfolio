@@ -1,12 +1,12 @@
 .rainbow-text {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 100px;
   animation: Color 4s linear infinite;
   -webkit-animation: Color 4s ease-in-out infinite;
 }
 
 .rainbow-bg {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 100px;
   animation: Bg 4s linear infinite;
   -webkit-animation: Bg 4s ease-in-out infinite;

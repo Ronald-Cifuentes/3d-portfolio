@@ -44,7 +44,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+*coverage*
 *.lcov
 
 # nyc test coverage
@@ -153,5 +153,14 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+.lean-ctx
+.claude
+
 package-lock.json
 yarn.lock
+
+# Playwright
+playwright-report/
+test-results/
+.playwright/
+e2e/.auth/

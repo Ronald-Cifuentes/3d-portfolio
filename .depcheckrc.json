@@ -1,0 +1,19 @@
+{
+  "ignores": [
+    "@emailjs/browser",
+    "@react-three/drei",
+    "@react-three/fiber",
+    "three",
+    "@types/three",
+    "react-tilt",
+    "core-js",
+    "@reduxjs/toolkit",
+    "react-redux",
+    "redux-mock-store",
+    "@types/redux-mock-store",
+    "jest-svg",
+    "svg-jest",
+    "@commitlint/cli",
+    "commitlint-config-gitmoji"
+  ]
+}

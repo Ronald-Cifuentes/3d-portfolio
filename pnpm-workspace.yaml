@@ -1,0 +1,6 @@
+# Explicit build-script decisions (security: do not run these postinstall scripts).
+#  - core-js: postinstall only prints a funding message (no build needed).
+#  - unrs-resolver: native resolver; ESLint passes without building it here.
+allowBuilds:
+  core-js: false
+  unrs-resolver: false

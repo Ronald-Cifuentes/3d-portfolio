@@ -1,8 +1,9 @@
-import { FC } from 'react'
+import { FC, useMemo, useEffect, useState } from 'react'
 import { NavbarProps } from './interfaces'
-import { useEffect, useState } from 'react'
-import { navLinks } from '../../constants'
 import { menu, close } from '../../assets'
+import { assetSrc } from '../../utils/assetSrc'
+import { useTranslation, type TranslationKey } from '../../i18n'
+import LanguageSelector from '../LanguageSelector'
 import {
   NavbarContainer,
   NavbarContent,
@@ -15,10 +16,23 @@ import {
   MobileNavListItem,
 } from './Navbar.styled'
 
+interface NavLink {
+  id: string
+  titleKey: TranslationKey
+}
+
+const navLinkKeys: NavLink[] = [
+  { id: 'work', titleKey: 'nav.work' },
+  { id: 'skills', titleKey: 'nav.skills' },
+  { id: 'projects', titleKey: 'nav.projects' },
+  { id: 'contact', titleKey: 'nav.contact' },
+]
+
 const Navbar: FC<NavbarProps> = ({ dataTestId = 'navbar' }) => {
   const [active, setActive] = useState('')
   const [toggle, setToggle] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { ts } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +44,20 @@ const Navbar: FC<NavbarProps> = ({ dataTestId = 'navbar' }) => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const translatedNavLinks = useMemo(() => {
+    return navLinkKeys.map(nav => ({
+      id: nav.id,
+      title: ts(nav.titleKey),
+    }))
+  }, [ts])
+
+  const menuAltText = ts('nav.menuAlt')
+
   return (
     <NavbarContainer data-testid={dataTestId} $scrolled={scrolled}>
       <NavbarContent>
         <DesktopNavList>
-          {navLinks.map(nav => (
+          {translatedNavLinks.map(nav => (
             <NavListItem
               key={nav.id}
               $active={active === nav.title}
@@ -43,14 +66,20 @@ const Navbar: FC<NavbarProps> = ({ dataTestId = 'navbar' }) => {
               <a href={`#${nav.id}`}>{nav.title}</a>
             </NavListItem>
           ))}
+          <LanguageSelector />
         </DesktopNavList>
 
         <MobileMenuContainer>
-          <ToggleButton src={toggle ? close : menu} alt='menu' onClick={() => setToggle(!toggle)} />
+          <LanguageSelector />
+          <ToggleButton
+            src={assetSrc(toggle ? close : menu)}
+            alt={menuAltText}
+            onClick={() => setToggle(!toggle)}
+          />
 
           <MobileMenu $show={toggle}>
             <MobileNavList>
-              {navLinks.map(nav => (
+              {translatedNavLinks.map(nav => (
                 <MobileNavListItem
                   key={nav.id}
                   $active={active === nav.title}

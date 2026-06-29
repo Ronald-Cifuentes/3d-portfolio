@@ -1,0 +1,6 @@
+projectKey=3d-portfolio
+serverUrl=http://localhost:9000
+serverVersion=26.1.0.118079
+dashboardUrl=http://localhost:9000/dashboard?id=3d-portfolio
+ceTaskId=21c0401f-882f-4074-834c-8603706528a3
+ceTaskUrl=http://localhost:9000/api/ce/task?id=21c0401f-882f-4074-834c-8603706528a3

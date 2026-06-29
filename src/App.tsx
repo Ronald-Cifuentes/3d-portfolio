@@ -1,14 +1,8 @@
 import { BrowserRouter } from 'react-router-dom'
-import {
-  Skills,
-  // Contact,
-  Content,
-  Experience,
-  Navbar,
-  // Tech,
-  // Projects,
-  // StarsCanvas,
-} from './components'
+import Skills from './components/Skills'
+import Content from './components/Content'
+import Experience from './components/Experience'
+import Navbar from './components/Navbar'
 import Background from './components/Background/Background'
 import Footer from './components/Footer/Footer'
 import { AppContainer, HeroSection } from './App.styled'
@@ -26,12 +20,6 @@ const App = () => {
 
         <Experience />
         <Skills />
-        {/* <Tech />
-        <Projects />
-        <StarsContainer>
-          <Contact />
-          <StarsCanvas />
-        </StarsContainer> */}
       </AppContainer>
     </BrowserRouter>
   )

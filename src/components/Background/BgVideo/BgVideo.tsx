@@ -4,14 +4,9 @@ const BgVideo = () => {
   const video1El = useRef<HTMLVideoElement>(null)
 
   const attemptPlay = () => {
-    video1El.current
-      ?.play()
-      .then(() => {
-        console.log('Success video background')
-      })
-      .catch((error: unknown) => {
-        console.error('Error attempting to play', error)
-      })
+    video1El.current?.play().catch((error: unknown) => {
+      console.error('Error attempting to play', error)
+    })
   }
 
   useEffect(() => {

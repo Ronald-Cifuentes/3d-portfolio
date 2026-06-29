@@ -1,4 +1,11 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
+import { useTranslation } from '../../i18n'
+
+const reducedMotion = css`
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+`
 
 const colorAnimation = keyframes`
   0% { color: #a0d468; }
@@ -30,7 +37,7 @@ const Container = styled.div`
   flex-direction: row;
   align-items: flex-start;
   gap: 1.25rem;
-  z-index: 10; // Added z-index to ensure content appears above background
+  z-index: 10;
 
   @media (min-width: 640px) {
     padding: 0 4rem;
@@ -49,6 +56,7 @@ const RainbowBar = styled.div`
   width: 0.25rem;
   height: 13rem;
   animation: ${bgAnimation} 4s ease-in-out infinite;
+  ${reducedMotion}
 `
 
 const ContentContainer = styled.div``
@@ -78,6 +86,7 @@ const RainbowSpan = styled.span`
   font-family: 'Oswald', sans-serif;
   font-size: 100px;
   animation: ${colorAnimation} 4s ease-in-out infinite;
+  ${reducedMotion}
 `
 
 const Description = styled.p`
@@ -108,17 +117,23 @@ const HiddenBr = styled.br`
 `
 
 const Content = () => {
+  const { ts } = useTranslation()
+
+  const greeting = ts('content.greeting')
+  const description = ts('content.description')
+  const descriptionLine2 = ts('content.descriptionLine2')
+
   return (
     <Container>
       <EmptyDiv />
       <RainbowBar />
       <ContentContainer>
         <Title>
-          {"Hi, I'm"} <RainbowSpan>Ronald</RainbowSpan>
+          {greeting} <RainbowSpan>Ronald</RainbowSpan>
         </Title>
         <Description>
-          Web Developer, Designer UX / UI <HiddenBr />
-          Web3, Javascript Specialist
+          {description} <HiddenBr />
+          {descriptionLine2}
         </Description>
       </ContentContainer>
     </Container>

@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { ExperienceCardProps } from './interfaces'
+import { assetSrc } from '../../../utils/assetSrc'
 
 import 'react-vertical-timeline-component/style.min.css'
 
@@ -24,7 +25,11 @@ const ExperienceCard: FC<ExperienceCardProps> = ({
       iconStyle={{ background: experience?.iconBg }}
       icon={
         <IconContainer>
-          <IconImage src={experience?.icon} alt={experience?.company_name} />
+          <IconImage
+            src={assetSrc(experience?.icon)}
+            alt={experience?.company_name}
+            loading='lazy'
+          />
         </IconContainer>
       }
     >
@@ -34,8 +39,8 @@ const ExperienceCard: FC<ExperienceCardProps> = ({
       </div>
 
       <PointsList>
-        {experience?.points.map((point: string, index: number) => (
-          <Point key={`experience-point-${index}`}>{point}</Point>
+        {experience?.points.map((point: string) => (
+          <Point key={point}>{point}</Point>
         ))}
       </PointsList>
     </StyledVerticalTimelineElement>
